@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>木门鉴赏 | 爱雅世家 · 柏裔木作</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap');
+
+        :root {
+            --primary: #1a1a2e;
+            --accent: #c8973e;
+            --accent-light: #e8b96a;
+            --text: #e0e0e0;
+            --bg: #0f0f1a;
+            --white: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* ===== TOPBAR ===== */
+        .topbar {
+            background: rgba(15,15,26,0.95);
+            border-bottom: 1px solid rgba(200,151,62,0.15);
+            padding: 0 60px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(16px);
+        }
+
+        .topbar-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .topbar-logo-icon {
+            width: 38px;
+            height: 38px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: var(--primary);
+            font-weight: 900;
+        }
+
+        .topbar-logo-text {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: 2px;
+        }
+
+        .topbar-logo-sub {
+            font-size: 10px;
+            color: var(--accent);
+            letter-spacing: 4px;
+        }
+
+        .topbar-nav {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .topbar-nav a {
+            color: #8a8aaa;
+            text-decoration: none;
+            font-size: 13px;
+            letter-spacing: 1px;
+            position: relative;
+            padding-bottom: 3px;
+            transition: color 0.3s;
+        }
+
+        .topbar-nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0;
+            width: 0; height: 2px;
+            background: var(--accent);
+            transition: width 0.3s;
+        }
+
+        .topbar-nav a:hover { color: var(--accent-light); }
+        .topbar-nav a:hover::after { width: 100%; }
+
+        .topbar-nav a.active {
+            color: var(--accent-light);
+        }
+        .topbar-nav a.active::after {
+            width: 100%;
+        }
+
+        .topbar-phone {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--accent);
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        /* ===== HERO BANNER ===== */
+        .gallery-hero {
+            position: relative;
+            height: 380px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: var(--primary);
+        }
+
+        .gallery-hero-bg {
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 50% 60%, rgba(200,151,62,0.15) 0%, transparent 60%),
+                linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 50%, #16213e 100%);
+        }
+
+        .gallery-hero-pattern {
+            position: absolute;
+            inset: 0;
+            opacity: 0.04;
+            background-image:
+                linear-gradient(var(--accent) 1px, transparent 1px),
+                linear-gradient(90deg, var(--accent) 1px, transparent 1px);
+            background-size: 60px 60px;
+        }
+
+        /* Floating wood texture */
+        .gallery-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                repeating-linear-gradient(
+                    -55deg,
+                    transparent,
+                    transparent 3px,
+                    rgba(200,151,62,0.03) 3px,
+                    rgba(200,151,62,0.03) 4px
+                ),
+                repeating-linear-gradient(
+                    55deg,
+                    transparent,
+                    transparent 8px,
+                    rgba(100,50,15,0.08) 8px,
+                    rgba(100,50,15,0.08) 10px
+                );
+        }
+
+        /* Golden sheen sweep */
+        .gallery-hero::after {
+            content: '';
+            position: absolute;
+            top: -30%;
+            left: -60%;
+            width: 40%;
+            height: 160%;
+            background: radial-gradient(ellipse at center, rgba(200,151,62,0.06) 0%, transparent 70%);
+            animation: heroSheen 6s ease-in-out infinite;
+        }
+        @keyframes heroSheen {
+            0%, 100% { opacity: 0.4; transform: translateX(0) rotate(-15deg); }
+            50% { opacity: 0.9; transform: translateX(200%) rotate(-15deg); }
+        }
+
+        .gallery-hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .gallery-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(200,151,62,0.12);
+            border: 1px solid rgba(200,151,62,0.3);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 11px;
+            color: var(--accent-light);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+
+        .gallery-badge::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent);
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.5); }
+        }
+
+        .gallery-hero h1 {
+            font-size: clamp(36px, 5vw, 60px);
+            font-weight: 900;
+            color: var(--white);
+            line-height: 1.15;
+            margin-bottom: 16px;
+        }
+
+        .gallery-hero h1 .gold {
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .gallery-hero p {
+            font-size: 16px;
+            color: #8a8aaa;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* Style pills */
+        .style-pills {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            margin-top: 28px;
+            flex-wrap: wrap;
+        }
+
+        .style-pill {
+            background: rgba(200,151,62,0.08);
+            border: 1px solid rgba(200,151,62,0.2);
+            color: var(--accent-light);
+            font-size: 12px;
+            padding: 6px 18px;
+            border-radius: 50px;
+            letter-spacing: 1px;
+        }
+
+        /* ===== FLIPBOOK EMBED ===== */
+        .flipbook-section {
+            padding: 60px 40px;
+            background: var(--bg);
+        }
+
+        .flipbook-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .flipbook-header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .flipbook-header h2 {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: 10px;
+        }
+
+        .flipbook-header p {
+            font-size: 14px;
+            color: #6a6a8a;
+        }
+
+        .flipbook-wrapper {
+            position: relative;
+            width: 100%;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(200,151,62,0.2);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 40px rgba(200,151,62,0.05);
+            background: #0a0a14;
+        }
+
+        .flipbook-wrapper iframe {
+            display: block;
+            width: 100%;
+            height: 680px;
+            border: none;
+        }
+
+        .flipbook-hint {
+            text-align: center;
+            padding: 16px;
+            font-size: 12px;
+            color: #4a4a6a;
+            letter-spacing: 1px;
+            border-top: 1px solid rgba(200,151,62,0.08);
+        }
+
+        /* ===== STYLE HIGHLIGHTS ===== */
+        .highlights {
+            padding: 80px 60px;
+            background: var(--primary);
+        }
+
+        .highlights-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .highlights-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .highlights-header .section-tag {
+            font-size: 11px;
+            color: var(--accent);
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .highlights-header h2 {
+            font-size: clamp(24px, 3.5vw, 38px);
+            font-weight: 800;
+            color: var(--white);
+        }
+
+        .style-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .style-card {
+            background: rgba(200,151,62,0.04);
+            border: 1px solid rgba(200,151,62,0.15);
+            border-radius: 16px;
+            padding: 32px 24px;
+            text-align: center;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .style-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(200,151,62,0.04) 0%, transparent 60%);
+        }
+
+        .style-card:hover {
+            border-color: rgba(200,151,62,0.4);
+            transform: translateY(-6px);
+            box-shadow: 0 16px 40px rgba(0,0,0,0.3);
+        }
+
+        .style-icon {
+            width: 56px;
+            height: 56px;
+            margin: 0 auto 20px;
+            background: rgba(200,151,62,0.1);
+            border: 1px solid rgba(200,151,62,0.2);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+        }
+
+        .style-card h3 {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 10px;
+        }
+
+        .style-card p {
+            font-size: 12px;
+            color: #6a6a8a;
+            line-height: 1.7;
+        }
+
+        .style-tag {
+            display: inline-block;
+            margin-top: 14px;
+            font-size: 10px;
+            color: var(--accent);
+            letter-spacing: 2px;
+            border: 1px solid rgba(200,151,62,0.3);
+            padding: 3px 12px;
+            border-radius: 50px;
+        }
+
+        /* ===== CTA ===== */
+        .gallery-cta {
+            padding: 80px 60px;
+            background: var(--bg);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gallery-cta::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at center, rgba(200,151,62,0.08) 0%, transparent 70%);
+        }
+
+        .gallery-cta-inner {
+            position: relative;
+            z-index: 1;
+        }
+
+        .gallery-cta h2 {
+            font-size: clamp(24px, 3.5vw, 40px);
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: 16px;
+        }
+
+        .gallery-cta p {
+            font-size: 15px;
+            color: #6a6a8a;
+            margin-bottom: 36px;
+            max-width: 480px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.8;
+        }
+
+        .cta-btn-primary {
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            color: var(--primary);
+            padding: 16px 40px;
+            border: none;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            text-decoration: none;
+            letter-spacing: 2px;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-family: inherit;
+        }
+
+        .cta-btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(200,151,62,0.35);
+        }
+
+        .cta-btn-outline {
+            background: transparent;
+            color: var(--white);
+            padding: 16px 40px;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 500;
+            cursor: pointer;
+            text-decoration: none;
+            letter-spacing: 2px;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-family: inherit;
+            margin-left: 16px;
+        }
+
+        .cta-btn-outline:hover {
+            border-color: var(--accent);
+            color: var(--accent-light);
+        }
+
+        .cta-phone {
+            font-size: 36px;
+            font-weight: 900;
+            color: var(--accent);
+            letter-spacing: 4px;
+            margin-bottom: 32px;
+            font-family: 'Noto Sans SC', monospace;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer-mini {
+            background: #080812;
+            border-top: 1px solid rgba(200,151,62,0.1);
+            padding: 32px 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .footer-mini-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .footer-mini-logo {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: var(--primary);
+            font-weight: 900;
+        }
+
+        .footer-mini-brand {
+            font-size: 14px;
+            color: var(--white);
+            font-weight: 600;
+        }
+
+        .footer-mini-en {
+            font-size: 9px;
+            color: var(--accent);
+            letter-spacing: 3px;
+        }
+
+        .footer-mini-copy {
+            font-size: 12px;
+            color: #3a3a5a;
+        }
+
+        .footer-mini-back {
+            color: #6a6a8a;
+            text-decoration: none;
+            font-size: 13px;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .footer-mini-back:hover {
+            color: var(--accent-light);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .topbar { padding: 0 24px; }
+            .topbar-nav { gap: 20px; }
+            .style-grid { grid-template-columns: repeat(2, 1fr); }
+            .highlights, .gallery-cta { padding: 60px 24px; }
+            .flipbook-section { padding: 40px 20px; }
+        }
+
+        @media (max-width: 768px) {
+            .topbar { padding: 0 16px; }
+            .topbar-nav { display: none; }
+            .gallery-hero { height: 280px; }
+            .gallery-hero h1 { font-size: 28px; }
+            .style-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
+            .flipbook-wrapper iframe { height: 400px; }
+            .footer-mini { flex-direction: column; gap: 16px; text-align: center; }
+            .cta-btn-outline { margin-left: 0; margin-top: 12px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ===== TOPBAR ===== -->
+<header class="topbar">
+    <a href="index.html" class="topbar-logo">
+        <div class="topbar-logo-icon">爱</div>
+        <div>
+            <div class="topbar-logo-text">爱雅世家 · 柏裔木作</div>
+            <div class="topbar-logo-sub">AIYA FAMILY</div>
+        </div>
+    </a>
+    <nav class="topbar-nav">
+        <a href="index.html">返回首页</a>
+        <a href="index.html#services">服务项目</a>
+        <a href="index.html#about">关于我们</a>
+        <a href="index.html#cases">案例展示</a>
+        <a href="index.html#contact">联系我们</a>
+        <a href="wood-door.html" class="active">木门鉴赏</a>
+    </nav>
+    <div class="topbar-phone">📞 13034396768</div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="gallery-hero">
+    <div class="gallery-hero-bg"></div>
+    <div class="gallery-hero-pattern"></div>
+    <div class="gallery-hero-content">
+        <div class="gallery-badge">云图册 · Digital Catalog 2023</div>
+        <h1>
+            新风尚<span class="gold">木门图册</span><br>
+            精选实拍 · 工艺鉴赏
+        </h1>
+        <p>涵盖当下流行的法式、极简、新中式、现代欧美等多种风格门型，<br>每一扇门都是工艺与美学的结合。</p>
+        <div class="style-pills">
+            <span class="style-pill">法式风格</span>
+            <span class="style-pill">极简主义</span>
+            <span class="style-pill">新中式</span>
+            <span class="style-pill">现代欧美</span>
+        </div>
+    </div>
+</section>
+
+<!-- ===== FLIPBOOK ===== -->
+<section class="flipbook-section">
+    <div class="flipbook-container">
+        <div class="flipbook-header">
+            <h2>📖 翻阅电子图册</h2>
+            <p>点击页面或滑动翻页，查看全部木门产品实拍</p>
+        </div>
+        <div class="flipbook-wrapper">
+            <iframe
+                src="https://flbook.com.cn/c/JYHlBs5BR0"
+                title="爱雅世家 新风尚木门云图册"
+                allowfullscreen
+                loading="lazy"
+            ></iframe>
+        </div>
+        <div class="flipbook-hint">
+            💡 如页面无法加载，请点击右上角「全屏」按钮，或直接访问 →
+            <a href="https://flbook.com.cn/c/JYHlBs5BR0" target="_blank" style="color:var(--accent);text-decoration:none;">flbook.com.cn/c/JYHlBs5BR0</a>
+        </div>
+    </div>
+</section>
+
+<!-- ===== STYLE HIGHLIGHTS ===== -->
+<section class="highlights">
+    <div class="highlights-inner">
+        <div class="highlights-header">
+            <div class="section-tag">Door Style</div>
+            <h2>木门风格 · 随心选择</h2>
+        </div>
+        <div class="style-grid">
+            <div class="style-card">
+                <div class="style-icon">🏛️</div>
+                <h3>法式风格</h3>
+                <p>浪漫雕花、优雅线条，柔和配色营造法式宫廷般的居家氛围，适合欧式装修风格。</p>
+                <span class="style-tag">Royal Classic</span>
+            </div>
+            <div class="style-card">
+                <div class="style-icon">⬜</div>
+                <h3>极简主义</h3>
+                <p>去繁从简、干净利落，一门到顶设计，大面积留白，适配现代简约、日式极简风格。</p>
+                <span class="style-tag">Minimalist</span>
+            </div>
+            <div class="style-card">
+                <div class="style-icon">🇨🇳</div>
+                <h3>新中式</h3>
+                <p>传统中式元素与现代工艺结合，山水纹理、古典窗格，体现东方美学的含蓄与典雅。</p>
+                <span class="style-tag">Neo-Chinese</span>
+            </div>
+            <div class="style-card">
+                <div class="style-icon">🌍</div>
+                <h3>现代欧美</h3>
+                <p>大气沉稳的线条设计，混油工艺，适配大户型、别墅、洋房等高端装修项目。</p>
+                <span class="style-tag">Modern European</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="gallery-cta">
+    <div class="gallery-cta-inner">
+        <div class="section-tag">Book a Visit</div>
+        <h2>喜欢这些款式？<br>免费上门量尺，定制专属木门</h2>
+        <p>武清区内专业师傅免费上门测量，专业设计师提供效果图，满意后再下单，无任何费用。</p>
+        <div class="cta-phone">📞 13034396768（苏总）</div>
+        <div>
+            <a href="index.html#contact" class="cta-btn-primary">立即预约咨询 →</a>
+            <a href="index.html" class="cta-btn-outline">返回首页</a>
+        </div>
+    </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer-mini">
+    <div class="footer-mini-left">
+        <div class="footer-mini-logo">爱</div>
+        <div>
+            <div class="footer-mini-brand">爱雅世家 · 柏裔木作</div>
+            <div class="footer-mini-en">AIYA FAMILY · BOYI WOODWORK</div>
+        </div>
+    </div>
+    <a href="index.html" class="footer-mini-back">← 返回官网首页</a>
+    <div class="footer-mini-copy">© 2026 爱雅世家·柏裔木作 版权所有</div>
+</footer>
+
+</body>
+</html>
