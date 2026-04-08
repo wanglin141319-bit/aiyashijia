@@ -1,0 +1,1624 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱雅世家 · 门窗家居定制 | 天津武清</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap');
+
+        :root {
+            --primary: #1a1a2e;
+            --accent: #c8973e;
+            --accent-light: #e8b96a;
+            --text: #e0e0e0;
+            --text-dark: #1a1a2e;
+            --bg: #0f0f1a;
+            --card-bg: #16213e;
+            --border: #2a2a4a;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* ===== NAVBAR ===== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 16px 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(15, 15, 26, 0.92);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(200, 151, 62, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            padding: 10px 60px;
+            background: rgba(15, 15, 26, 0.98);
+            box-shadow: 0 4px 30px rgba(0,0,0,0.5);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 44px;
+            height: 44px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: var(--primary);
+            font-weight: 900;
+            font-family: serif;
+        }
+
+        .logo-text {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: 3px;
+        }
+
+        .logo-sub {
+            font-size: 10px;
+            color: var(--accent);
+            letter-spacing: 6px;
+            font-weight: 400;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 36px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 14px;
+            letter-spacing: 1px;
+            position: relative;
+            padding-bottom: 4px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-light);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-phone {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--accent);
+            font-size: 15px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .mobile-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .mobile-toggle span {
+            width: 28px;
+            height: 2px;
+            background: var(--accent);
+            transition: 0.3s;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background: var(--primary);
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 70% 50%, rgba(200, 151, 62, 0.12) 0%, transparent 60%),
+                radial-gradient(ellipse at 20% 80%, rgba(22, 33, 62, 0.8) 0%, transparent 50%),
+                linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 50%, #16213e 100%);
+        }
+
+        .hero-pattern {
+            position: absolute;
+            inset: 0;
+            opacity: 0.04;
+            background-image:
+                linear-gradient(var(--accent) 1px, transparent 1px),
+                linear-gradient(90deg, var(--accent) 1px, transparent 1px);
+            background-size: 60px 60px;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 120px 60px 80px;
+            width: 100%;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(200, 151, 62, 0.12);
+            border: 1px solid rgba(200, 151, 62, 0.3);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 12px;
+            color: var(--accent-light);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 32px;
+        }
+
+        .hero-badge::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.5); }
+        }
+
+        .hero h1 {
+            font-size: clamp(42px, 6vw, 76px);
+            font-weight: 900;
+            line-height: 1.1;
+            color: var(--white);
+            margin-bottom: 24px;
+        }
+
+        .hero h1 .gold {
+            background: linear-gradient(135deg, var(--accent), var(--accent-light), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-desc {
+            font-size: 18px;
+            color: #8a8aaa;
+            max-width: 540px;
+            line-height: 1.9;
+            margin-bottom: 48px;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            color: var(--primary);
+            padding: 16px 40px;
+            border: none;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            text-decoration: none;
+            letter-spacing: 2px;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-family: inherit;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(200, 151, 62, 0.35);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--white);
+            padding: 16px 40px;
+            border: 1px solid rgba(255,255,255,0.25);
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 500;
+            cursor: pointer;
+            text-decoration: none;
+            letter-spacing: 2px;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-family: inherit;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--accent);
+            color: var(--accent-light);
+            background: rgba(200, 151, 62, 0.08);
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 60px;
+            margin-top: 80px;
+            padding-top: 48px;
+            border-top: 1px solid var(--border);
+        }
+
+        .stat-item {
+            text-align: left;
+        }
+
+        .stat-num {
+            font-size: 38px;
+            font-weight: 900;
+            color: var(--accent);
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 13px;
+            color: #6a6a8a;
+            margin-top: 8px;
+            letter-spacing: 2px;
+        }
+
+        /* ===== SECTIONS ===== */
+        section {
+            padding: 100px 60px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 72px;
+        }
+
+        .section-tag {
+            font-size: 11px;
+            color: var(--accent);
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-size: clamp(28px, 4vw, 44px);
+            font-weight: 800;
+            color: var(--white);
+            line-height: 1.2;
+            margin-bottom: 18px;
+        }
+
+        .section-sub {
+            font-size: 16px;
+            color: #6a6a8a;
+            max-width: 560px;
+            margin: 0 auto;
+        }
+
+        /* ===== SERVICES ===== */
+        .services {
+            background: var(--bg);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            position: relative;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(200, 151, 62, 0.4);
+            box-shadow: 0 24px 60px rgba(0,0,0,0.4), 0 0 0 1px rgba(200, 151, 62, 0.1);
+        }
+
+        .service-img {
+            height: 200px;
+            background: linear-gradient(135deg, #1a1a2e, #2a2a4a);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: #4a4a6a;
+            letter-spacing: 2px;
+            border-bottom: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-img::after {
+            content: '图片展示区';
+            font-size: 12px;
+            color: #3a3a5a;
+            letter-spacing: 3px;
+        }
+
+        .service-img.has-img {
+            background-size: cover;
+            background-position: center;
+        }
+
+        .service-body {
+            padding: 28px;
+        }
+
+        .service-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(200, 151, 62, 0.1);
+            border: 1px solid rgba(200, 151, 62, 0.2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            margin-bottom: 18px;
+        }
+
+        .service-card h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 12px;
+        }
+
+        .service-card p {
+            font-size: 14px;
+            color: #7a7a9a;
+            line-height: 1.8;
+        }
+
+        .service-tag {
+            display: inline-block;
+            background: rgba(200, 151, 62, 0.08);
+            border: 1px solid rgba(200, 151, 62, 0.15);
+            color: var(--accent-light);
+            font-size: 11px;
+            padding: 4px 12px;
+            border-radius: 50px;
+            margin-top: 16px;
+            letter-spacing: 1px;
+        }
+
+        /* ===== ABOUT ===== */
+        .about {
+            background: var(--primary);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            max-width: 1200px;
+            margin: 0 auto;
+            align-items: center;
+        }
+
+        .about-visual {
+            height: 500px;
+            background: linear-gradient(135deg, #16213e, #2a2a4a);
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 12px;
+            color: #3a3a5a;
+            font-size: 13px;
+            letter-spacing: 4px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-visual::before {
+            content: ' ';
+            width: 80px;
+            height: 80px;
+            border: 2px solid rgba(200,151,62,0.2);
+            border-radius: 20px;
+            transform: rotate(45deg);
+        }
+
+        .about-content h2 {
+            font-size: 40px;
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+
+        .about-content h2 span {
+            color: var(--accent);
+        }
+
+        .about-content > p {
+            font-size: 15px;
+            color: #8a8aaa;
+            line-height: 2;
+            margin-bottom: 36px;
+        }
+
+        .feature-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .feature-item {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+
+        .feature-dot {
+            width: 10px;
+            height: 10px;
+            min-width: 10px;
+            border-radius: 50%;
+            background: var(--accent);
+            margin-top: 7px;
+            box-shadow: 0 0 12px rgba(200, 151, 62, 0.5);
+        }
+
+        .feature-item h4 {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 4px;
+        }
+
+        .feature-item p {
+            font-size: 13px;
+            color: #6a6a8a;
+        }
+
+        /* ===== WHY US ===== */
+        .whyus {
+            background: var(--bg);
+        }
+
+        .whyus-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .whyus-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 40px 28px;
+            text-align: center;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .whyus-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-light));
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .whyus-card:hover::before {
+            opacity: 1;
+        }
+
+        .whyus-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(200, 151, 62, 0.3);
+        }
+
+        .whyus-icon {
+            width: 64px;
+            height: 64px;
+            background: rgba(200, 151, 62, 0.08);
+            border: 1px solid rgba(200, 151, 62, 0.15);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin: 0 auto 24px;
+        }
+
+        .whyus-card h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 12px;
+        }
+
+        .whyus-card p {
+            font-size: 13px;
+            color: #6a6a8a;
+            line-height: 1.8;
+        }
+
+        /* ===== CASES ===== */
+        .cases {
+            background: var(--primary);
+        }
+
+        .cases-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(2, 260px);
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .case-card {
+            background: linear-gradient(135deg, #1a1a2e, #2a2a4a);
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            cursor: pointer;
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+            color: #4a4a6a;
+            font-size: 12px;
+            letter-spacing: 2px;
+        }
+
+        .case-card:hover {
+            border-color: rgba(200, 151, 62, 0.4);
+            transform: scale(1.02);
+        }
+
+        .case-card.large {
+            grid-column: span 2;
+            grid-row: span 1;
+        }
+
+        .case-label {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--accent-light);
+            letter-spacing: 1px;
+        }
+
+        .case-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .case-card:hover .case-overlay {
+            opacity: 1;
+        }
+
+        /* ===== PROCESS ===== */
+        .process {
+            background: var(--bg);
+        }
+
+        .process-steps {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 44px;
+            left: 10%;
+            right: 10%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            opacity: 0.3;
+        }
+
+        .process-step {
+            text-align: center;
+            flex: 1;
+            max-width: 220px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .step-num {
+            width: 88px;
+            height: 88px;
+            border-radius: 50%;
+            background: var(--card-bg);
+            border: 2px solid rgba(200, 151, 62, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            font-size: 32px;
+            color: var(--accent);
+            font-weight: 900;
+            transition: all 0.3s;
+        }
+
+        .process-step:hover .step-num {
+            background: rgba(200, 151, 62, 0.1);
+            border-color: var(--accent);
+            transform: scale(1.1);
+        }
+
+        .process-step h3 {
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 10px;
+        }
+
+        .process-step p {
+            font-size: 13px;
+            color: #6a6a8a;
+            line-height: 1.8;
+        }
+
+        /* ===== CTA ===== */
+        .cta {
+            background: var(--primary);
+            padding: 100px 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at center, rgba(200, 151, 62, 0.08) 0%, transparent 70%);
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta h2 {
+            font-size: clamp(28px, 4vw, 46px);
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: 18px;
+        }
+
+        .cta p {
+            font-size: 16px;
+            color: #8a8aaa;
+            margin-bottom: 48px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-phone {
+            font-size: 42px;
+            font-weight: 900;
+            color: var(--accent);
+            letter-spacing: 4px;
+            margin-bottom: 48px;
+            font-family: 'Noto Sans SC', monospace;
+        }
+
+        /* ===== CONTACT ===== */
+        .contact {
+            background: var(--bg);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .contact-icon {
+            width: 52px;
+            height: 52px;
+            min-width: 52px;
+            background: rgba(200, 151, 62, 0.08);
+            border: 1px solid rgba(200, 151, 62, 0.15);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+        }
+
+        .contact-item h4 {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 6px;
+        }
+
+        .contact-item p {
+            font-size: 14px;
+            color: #8a8aaa;
+            line-height: 1.7;
+        }
+
+        .contact-form {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 48px;
+        }
+
+        .contact-form h3 {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 32px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            color: #8a8aaa;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 14px 18px;
+            font-size: 14px;
+            color: var(--white);
+            font-family: inherit;
+            transition: border-color 0.3s;
+            outline: none;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #4a4a6a;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: rgba(200, 151, 62, 0.5);
+        }
+
+        .form-group select option {
+            background: #1a1a2e;
+            color: var(--white);
+        }
+
+        .form-group textarea {
+            height: 110px;
+            resize: none;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: #080812;
+            border-top: 1px solid var(--border);
+            padding: 60px 60px 32px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 48px;
+            max-width: 1200px;
+            margin: 0 auto 48px;
+        }
+
+        .footer-brand p {
+            font-size: 13px;
+            color: #4a4a6a;
+            line-height: 1.9;
+            margin-top: 16px;
+        }
+
+        .footer h4 {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-links a {
+            color: #5a5a7a;
+            text-decoration: none;
+            font-size: 13px;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-light);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 32px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            color: #3a3a5a;
+        }
+
+        /* ===== PLACEHOLDER IMG ===== */
+        .img-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 8px;
+            color: #3a3a5a;
+            font-size: 11px;
+            letter-spacing: 3px;
+        }
+
+        .img-placeholder::before {
+            content: '📷';
+            font-size: 32px;
+            filter: grayscale(1) brightness(0.5);
+        }
+
+        /* ===== SCROLL ANIMATION ===== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== FLOATING BADGE ===== */
+        .float-contact {
+            position: fixed;
+            bottom: 32px;
+            right: 32px;
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .float-btn {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            text-decoration: none;
+            box-shadow: 0 8px 30px rgba(200, 151, 62, 0.4);
+            transition: all 0.3s;
+        }
+
+        .float-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 12px 40px rgba(200, 151, 62, 0.5);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            section { padding: 80px 32px; }
+            .navbar { padding: 14px 32px; }
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+            .whyus-grid { grid-template-columns: repeat(2, 1fr); }
+            .cases-grid { grid-template-columns: repeat(2, 1fr); grid-template-rows: auto; }
+            .about-grid { grid-template-columns: 1fr; gap: 48px; }
+            .about-visual { height: 360px; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .hero-stats { gap: 40px; flex-wrap: wrap; }
+        }
+
+        @media (max-width: 768px) {
+            section { padding: 64px 20px; }
+            .navbar { padding: 12px 20px; }
+            .nav-links { display: none; }
+            .nav-phone { display: none; }
+            .mobile-toggle { display: flex; }
+            .hero-content { padding: 100px 20px 60px; }
+            .hero h1 { font-size: 36px; }
+            .hero-stats { gap: 28px; }
+            .services-grid { grid-template-columns: 1fr; }
+            .whyus-grid { grid-template-columns: 1fr 1fr; }
+            .cases-grid { grid-template-columns: 1fr; }
+            .case-card.large { grid-column: span 1; }
+            .process-steps { flex-direction: column; align-items: center; gap: 32px; }
+            .process-steps::before { display: none; }
+            .contact-grid { grid-template-columns: 1fr; }
+            .contact-form { padding: 28px; }
+            .form-row { grid-template-columns: 1fr; }
+            .footer { padding: 48px 20px 24px; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+            .cta-phone { font-size: 28px; }
+        }
+
+        @media (max-width: 480px) {
+            .hero-actions { flex-direction: column; }
+            .btn-primary, .btn-outline { width: 100%; justify-content: center; }
+            .whyus-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar" id="navbar">
+    <a href="#" class="logo">
+        <div class="logo-icon">爱</div>
+        <div>
+            <div class="logo-text">爱雅世家</div>
+            <div class="logo-sub">门窗 · 家居定制</div>
+        </div>
+    </a>
+    <ul class="nav-links">
+        <li><a href="#services">服务项目</a></li>
+        <li><a href="#about">关于我们</a></li>
+        <li><a href="#cases">案例展示</a></li>
+        <li><a href="#process">服务流程</a></li>
+        <li><a href="#contact">联系我们</a></li>
+    </ul>
+    <div class="nav-phone">📞 022-XXXXXXXX</div>
+    <div class="mobile-toggle" id="mobileToggle">
+        <span></span><span></span><span></span>
+    </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-pattern"></div>
+    <div class="hero-content">
+        <div class="hero-badge">天津市武清区 · 值得信赖的品牌</div>
+        <h1>
+            让家更美好<br>
+            从 <span class="gold">一扇门</span> 开始
+        </h1>
+        <p class="hero-desc">
+            爱雅世家专注于门窗定制与家居装修，涵盖木门、防盗门、橱柜、衣柜、全屋定制等全品类服务。为武清及周边地区业主提供品质、环保、省心的居家解决方案。
+        </p>
+        <div class="hero-actions">
+            <a href="#contact" class="btn-primary">立即预约咨询 →</a>
+            <a href="#services" class="btn-outline">浏览服务项目</a>
+        </div>
+        <div class="hero-stats">
+            <div class="stat-item">
+                <div class="stat-num">10+</div>
+                <div class="stat-label">年行业深耕</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-num">500+</div>
+                <div class="stat-label">服务家庭</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-num">98%</div>
+                <div class="stat-label">客户好评率</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-num">武清</div>
+                <div class="stat-label">本地直营</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== SERVICES ===== -->
+<section class="services" id="services">
+    <div class="section-header reveal">
+        <div class="section-tag">Our Services</div>
+        <h2 class="section-title">全品类家居服务，一站式解决方案</h2>
+        <p class="section-sub">从门的品质到家的温度，爱雅世家覆盖您的全部家装需求</p>
+    </div>
+    <div class="services-grid">
+        <div class="service-card reveal">
+            <div class="service-img"><!-- 图片区 --></div>
+            <div class="service-body">
+                <div class="service-icon">🚪</div>
+                <h3>防盗门定制</h3>
+                <p>甲级防盗门/乙级防盗门，钢制/铜门/铸铝门多种材质，防火防盗隔音，专业安装团队，终身售后保障。</p>
+                <span class="service-tag">安全第一</span>
+            </div>
+        </div>
+        <div class="service-card reveal">
+            <div class="service-img"><!-- 图片区 --></div>
+            <div class="service-body">
+                <div class="service-icon">🌳</div>
+                <h3>木门系列</h3>
+                <p>实木门、实木复合门、生态门，免漆门多种选择，E0级环保标准，隔音保温，专属定制尺寸。</p>
+                <span class="service-tag">环保静音</span>
+            </div>
+        </div>
+        <div class="service-card reveal">
+            <div class="service-img"><!-- 图片区 --></div>
+            <div class="service-body">
+                <div class="service-icon">🍳</div>
+                <h3>橱柜定制</h3>
+                <p>整体厨房橱柜定制，根据厨房空间量身设计，多种板材、台面风格可选，现代简约/轻奢/欧式多风格。</p>
+                <span class="service-tag">按需定制</span>
+            </div>
+        </div>
+        <div class="service-card reveal">
+            <div class="service-img"><!-- 图片区 --></div>
+            <div class="service-body">
+                <div class="service-icon">🗄️</div>
+                <h3>衣柜定制</h3>
+                <p>步入式衣柜、衣帽间定制，内部结构科学分区，移门/平开门灵活选择，储物容量提升40%以上。</p>
+                <span class="service-tag">空间大师</span>
+            </div>
+        </div>
+        <div class="service-card reveal">
+            <div class="service-img"><!-- 图片区 --></div>
+            <div class="service-body">
+                <div class="service-icon">🏠</div>
+                <h3>成品家居定制</h3>
+                <p>全屋定制家具，玄关柜、榻榻米、书柜、阳台柜等，根据户型和需求量身设计，风格统一协调。</p>
+                <span class="service-tag">全屋整配</span>
+            </div>
+        </div>
+        <div class="service-card reveal">
+            <div class="service-img"><!-- 图片区 --></div>
+            <div class="service-body">
+                <div class="service-icon">🎨</div>
+                <h3>装修装饰工程</h3>
+                <p>承接毛坯装修、旧房翻新、精装改造，水电泥木油全流程施工，标准化管理，透明报价，拎包入住。</p>
+                <span class="service-tag">拎包入住</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section class="about" id="about">
+    <div class="about-grid">
+        <div class="about-visual reveal">
+            <div style="font-size:11px;color:#3a3a5a;letter-spacing:4px;margin-bottom:12px;">[ 品牌展示图片区 ]</div>
+            <div style="font-size:10px;color:#2a2a4a;letter-spacing:3px;">VIDEO ZONE</div>
+        </div>
+        <div class="about-content reveal">
+            <div class="section-tag">About Us</div>
+            <h2>扎根武清，服务京津<br>做 <span>品质家居</span> 的践行者</h2>
+            <p>
+                爱雅世家门窗家居定制中心坐落于天津市武清区，是一家集产品销售、设计测量、安装售后于一体的本地直营品牌。我们深耕武清市场多年，深度理解北方气候与本地户型特点，为每一户家庭提供最合适的门窗与家居定制方案。
+            </p>
+            <div class="feature-list">
+                <div class="feature-item">
+                    <div class="feature-dot"></div>
+                    <div>
+                        <h4>自有工厂 · 源头直供</h4>
+                        <p>自有生产线，省去中间环节，同等品质价格更优</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-dot"></div>
+                    <div>
+                        <h4>专业测量 · 免费上门</h4>
+                        <p>武清区内专业师傅免费上门测量，出具详细方案</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-dot"></div>
+                    <div>
+                        <h4>金牌安装 · 标准化施工</h4>
+                        <p>自有安装团队，统一培训持证上岗，质量有保障</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-dot"></div>
+                    <div>
+                        <h4>售后无忧 · 终身维护</h4>
+                        <p>建立客户档案，定期回访，门/柜体质保年限明确</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== WHY US ===== -->
+<section class="whyus" id="whyus">
+    <div class="section-header reveal">
+        <div class="section-tag">Why Choose Us</div>
+        <h2 class="section-title">为什么选择爱雅世家？</h2>
+        <p class="section-sub">不只是卖产品，更是做服务</p>
+    </div>
+    <div class="whyus-grid">
+        <div class="whyus-card reveal">
+            <div class="whyus-icon">🏭</div>
+            <h3>工厂直营</h3>
+            <p>自有工厂生产，省去经销商层层加价，让利客户，品质可控</p>
+        </div>
+        <div class="whyus-card reveal">
+            <div class="whyus-icon">📐</div>
+            <h3>免费量尺设计</h3>
+            <p>武清区内上门量尺，专业设计师出具效果图，免费出方案</p>
+        </div>
+        <div class="whyus-card reveal">
+            <div class="whyus-icon">⏱️</div>
+            <h3>工期保障</h3>
+            <p>标准化生产流程，木门15-20天，定制柜体20-30天，按时交付</p>
+        </div>
+        <div class="whyus-card reveal">
+            <div class="whyus-icon">🔧</div>
+            <h3>售后无忧</h3>
+            <p>质保期内免费上门，24小时响应，超长年限质保协议</p>
+        </div>
+    </div>
+</section>
+
+<!-- ===== CASES ===== -->
+<section class="cases" id="cases">
+    <div class="section-header reveal">
+        <div class="section-tag">Case Gallery</div>
+        <h2 class="section-title">精选案例 · 真实呈现</h2>
+        <p class="section-sub">每一次交付，都是口碑的延续</p>
+    </div>
+    <div class="cases-grid">
+        <div class="case-card large reveal">
+            <div style="position:absolute;inset:0;background:linear-gradient(135deg,#16213e,#2a2a4a);border-radius:16px;"></div>
+            <div style="position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;gap:10px;">
+                <div style="font-size:10px;color:#3a3a5a;letter-spacing:4px;">CASE 01</div>
+                <div class="case-label">武清某小区 · 防盗门换装</div>
+                <div style="font-size:11px;color:#4a4a6a;letter-spacing:2px;">[ 安装效果图 ]</div>
+            </div>
+            <div class="case-overlay">
+                <div style="color:#e0e0e0;font-size:13px;font-weight:500;">武清某小区 · 防盗门换装</div>
+                <div style="color:#6a6a8a;font-size:12px;margin-top:4px;">甲级防盗门 · 完美贴合旧门框</div>
+            </div>
+        </div>
+        <div class="case-card reveal">
+            <div style="position:absolute;inset:0;background:linear-gradient(135deg,#1a1a2e,#252540);border-radius:16px;"></div>
+            <div style="position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;gap:8px;">
+                <div style="font-size:10px;color:#3a3a5a;letter-spacing:4px;">CASE 02</div>
+                <div class="case-label">全屋木门</div>
+                <div style="font-size:11px;color:#4a4a6a;letter-spacing:2px;">[ 效果图片 ]</div>
+            </div>
+            <div class="case-overlay">
+                <div style="color:#e0e0e0;font-size:13px;font-weight:500;">全屋木门定制</div>
+                <div style="color:#6a6a8a;font-size:12px;margin-top:4px;">实木复合门 · 静音升级</div>
+            </div>
+        </div>
+        <div class="case-card reveal">
+            <div style="position:absolute;inset:0;background:linear-gradient(135deg,#1a1a2e,#252540);border-radius:16px;"></div>
+            <div style="position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;gap:8px;">
+                <div style="font-size:10px;color:#3a3a5a;letter-spacing:4px;">CASE 03</div>
+                <div class="case-label">定制橱柜</div>
+                <div style="font-size:11px;color:#4a4a6a;letter-spacing:2px;">[ 效果图片 ]</div>
+            </div>
+            <div class="case-overlay">
+                <div style="color:#e0e0e0;font-size:13px;font-weight:500;">定制橱柜</div>
+                <div style="color:#6a6a8a;font-size:12px;margin-top:4px;">L型厨房 · 岩板台面</div>
+            </div>
+        </div>
+        <div class="case-card reveal">
+            <div style="position:absolute;inset:0;background:linear-gradient(135deg,#1a1a2e,#252540);border-radius:16px;"></div>
+            <div style="position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;gap:8px;">
+                <div style="font-size:10px;color:#3a3a5a;letter-spacing:4px;">CASE 04</div>
+                <div class="case-label">定制衣柜</div>
+                <div style="font-size:11px;color:#4a4a6a;letter-spacing:2px;">[ 效果图片 ]</div>
+            </div>
+            <div class="case-overlay">
+                <div style="color:#e0e0e0;font-size:13px;font-weight:500;">定制衣柜</div>
+                <div style="color:#6a6a8a;font-size:12px;margin-top:4px;">一门到顶 · 极简风格</div>
+            </div>
+        </div>
+        <div class="case-card large reveal">
+            <div style="position:absolute;inset:0;background:linear-gradient(135deg,#16213e,#2a2a4a);border-radius:16px;"></div>
+            <div style="position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;gap:10px;">
+                <div style="font-size:10px;color:#3a3a5a;letter-spacing:4px;">CASE 05</div>
+                <div class="case-label">旧房翻新 · 全屋装修</div>
+                <div style="font-size:11px;color:#4a4a6a;letter-spacing:2px;">[ 装修效果图 / 视频 ]</div>
+            </div>
+            <div class="case-overlay">
+                <div style="color:#e0e0e0;font-size:13px;font-weight:500;">旧房翻新全屋装修</div>
+                <div style="color:#6a6a8a;font-size:12px;margin-top:4px;">从拆除到入住，一站式服务</div>
+            </div>
+        </div>
+        <div class="case-card reveal">
+            <div style="position:absolute;inset:0;background:linear-gradient(135deg,#1a1a2e,#252540);border-radius:16px;"></div>
+            <div style="position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;gap:8px;">
+                <div style="font-size:10px;color:#3a3a5a;letter-spacing:4px;">CASE 06</div>
+                <div class="case-label">实木门特写</div>
+                <div style="font-size:11px;color:#4a4a6a;letter-spacing:2px;">[ 效果图片 ]</div>
+            </div>
+            <div class="case-overlay">
+                <div style="color:#e0e0e0;font-size:13px;font-weight:500;">实木门细节</div>
+                <div style="color:#6a6a8a;font-size:12px;margin-top:4px;">精选木材 · 手工雕花</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== PROCESS ===== -->
+<section class="process" id="process">
+    <div class="section-header reveal">
+        <div class="section-tag">Our Process</div>
+        <h2 class="section-title">服务流程 · 简单透明</h2>
+        <p class="section-sub">从咨询到入住，每一步都清晰可见</p>
+    </div>
+    <div class="process-steps">
+        <div class="process-step reveal">
+            <div class="step-num">01</div>
+            <h3>在线咨询 / 到店</h3>
+            <p>电话或微信联系，说明需求，预约上门测量时间</p>
+        </div>
+        <div class="process-step reveal">
+            <div class="step-num">02</div>
+            <h3>上门量尺</h3>
+            <p>专业师傅上门精准测量，记录门洞/空间尺寸，免费出图</p>
+        </div>
+        <div class="process-step reveal">
+            <div class="step-num">03</div>
+            <h3>方案确认</h3>
+            <p>确认材料、颜色、报价，签订合同，预付定金</p>
+        </div>
+        <div class="process-step reveal">
+            <div class="step-num">04</div>
+            <h3>生产发货</h3>
+            <p>工厂按单生产，按约定工期完成，发货至现场</p>
+        </div>
+        <div class="process-step reveal">
+            <div class="step-num">05</div>
+            <h3>安装验收</h3>
+            <p>专业团队上门安装，客户验收，满意后付清尾款</p>
+        </div>
+    </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="cta" id="cta">
+    <div class="cta-content reveal">
+        <div class="section-tag">Contact Us</div>
+        <h2>免费量尺 · 先出方案再谈价</h2>
+        <p>武清区内上门测量，24小时内出具初步方案<br>无任何费用，真正的零风险咨询</p>
+        <div class="cta-phone">📞 022-XXXXXXXX</div>
+        <div class="hero-actions" style="justify-content:center;">
+            <a href="#contact" class="btn-primary">在线预约咨询 →</a>
+        </div>
+    </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section class="contact" id="contact">
+    <div class="section-header reveal">
+        <div class="section-tag">Get In Touch</div>
+        <h2 class="section-title">联系我们</h2>
+        <p class="section-sub">期待为您服务，欢迎到店参观</p>
+    </div>
+    <div class="contact-grid">
+        <div class="contact-info reveal">
+            <div class="contact-item">
+                <div class="contact-icon">📍</div>
+                <div>
+                    <h4>门店地址</h4>
+                    <p>天津市武清区<br>（详细地址待补充）</p>
+                </div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-icon">📞</div>
+                <div>
+                    <h4>联系电话</h4>
+                    <p>022-XXXXXXXX<br>手机：1XX-XXXX-XXXX（微信同号）</p>
+                </div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-icon">🕐</div>
+                <div>
+                    <h4>营业时间</h4>
+                    <p>周一至周日 09:00 - 18:00<br>节假日正常营业（春节除外）</p>
+                </div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-icon">📧</div>
+                <div>
+                    <h4>线上咨询</h4>
+                    <p>微信：XXXXXXX<br>抖音/小红书搜索：爱雅世家门窗</p>
+                </div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-icon">🗺️</div>
+                <div>
+                    <h4>交通指引</h4>
+                    <p>武清城区内可免费上门服务<br>高德地图/百度地图搜索"爱雅世家"即可导航</p>
+                </div>
+            </div>
+        </div>
+        <div class="contact-form reveal">
+            <h3>预约免费量尺</h3>
+            <form onsubmit="handleSubmit(event)">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>您的称呼</label>
+                        <input type="text" placeholder="请输入姓名" required>
+                    </div>
+                    <div class="form-group">
+                        <label>联系电话</label>
+                        <input type="tel" placeholder="手机号码" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>服务类型</label>
+                    <select>
+                        <option value="">请选择需要的服务</option>
+                        <option>防盗门咨询/安装</option>
+                        <option>木门定制</option>
+                        <option>橱柜定制</option>
+                        <option>衣柜定制</option>
+                        <option>全屋定制</option>
+                        <option>装修装饰工程</option>
+                        <option>其他/综合咨询</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>小区/楼盘名称</label>
+                    <input type="text" placeholder="如：武清翡翠半岛">
+                </div>
+                <div class="form-group">
+                    <label>补充说明（选填）</label>
+                    <textarea placeholder="请描述您的需求，如：需要换3扇防盗门，厨房想做开放式橱柜..."></textarea>
+                </div>
+                <button type="submit" class="btn-primary" style="width:100%;justify-content:center;margin-top:8px;">
+                    提交预约 →
+                </button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+    <div class="footer-grid">
+        <div class="footer-brand">
+            <a href="#" class="logo" style="margin-bottom:4px;">
+                <div class="logo-icon">爱</div>
+                <div>
+                    <div class="logo-text">爱雅世家</div>
+                    <div class="logo-sub">门窗 · 家居定制</div>
+                </div>
+            </a>
+            <p>爱雅世家门窗家居定制中心，扎根天津市武清区，提供防盗门、木门、橱柜、衣柜、全屋定制及装修装饰等一站式服务。品质保障，售后无忧。</p>
+        </div>
+        <div>
+            <h4>服务项目</h4>
+            <ul class="footer-links">
+                <li><a href="#services">防盗门</a></li>
+                <li><a href="#services">木门</a></li>
+                <li><a href="#services">橱柜定制</a></li>
+                <li><a href="#services">衣柜定制</a></li>
+                <li><a href="#services">全屋定制</a></li>
+                <li><a href="#services">装修工程</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4>快速导航</h4>
+            <ul class="footer-links">
+                <li><a href="#about">关于我们</a></li>
+                <li><a href="#cases">案例展示</a></li>
+                <li><a href="#process">服务流程</a></li>
+                <li><a href="#contact">联系方式</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4>联系我们</h4>
+            <ul class="footer-links">
+                <li><a href="#">📞 022-XXXXXXXX</a></li>
+                <li><a href="#">📍 天津市武清区</a></li>
+                <li><a href="#">📧 待补充邮箱</a></li>
+                <li><a href="#">🕐 09:00-18:00</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <span>© 2026 爱雅世家门窗家居定制中心 版权所有</span>
+        <span>津ICP备XXXXXXXX号 | 技术支持：爱雅世家</span>
+    </div>
+</footer>
+
+<!-- FLOATING CONTACT -->
+<div class="float-contact">
+    <a href="tel:022-XXXXXXXX" class="float-btn" title="电话咨询">📞</a>
+</div>
+
+<script>
+    // Navbar scroll
+    window.addEventListener('scroll', () => {
+        const nav = document.getElementById('navbar');
+        if (window.scrollY > 60) {
+            nav.classList.add('scrolled');
+        } else {
+            nav.classList.remove('scrolled');
+        }
+    });
+
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                revealObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    reveals.forEach(el => revealObserver.observe(el));
+
+    // Form submit
+    function handleSubmit(e) {
+        e.preventDefault();
+        const btn = e.target.querySelector('button[type="submit"]');
+        btn.textContent = '✓ 预约已提交！';
+        btn.style.background = 'linear-gradient(135deg, #27ae60, #2ecc71)';
+        setTimeout(() => {
+            btn.textContent = '提交预约 →';
+            btn.style.background = '';
+            e.target.reset();
+        }, 3000);
+    }
+
+    // Mobile nav
+    const toggle = document.getElementById('mobileToggle');
+    const navLinks = document.querySelector('.nav-links');
+    toggle.addEventListener('click', () => {
+        if (navLinks.style.display === 'flex') {
+            navLinks.style.display = 'none';
+        } else {
+            navLinks.style.display = 'flex';
+            navLinks.style.position = 'fixed';
+            navLinks.style.top = '60px';
+            navLinks.style.left = '0';
+            navLinks.style.right = '0';
+            navLinks.style.background = 'rgba(15,15,26,0.98)';
+            navLinks.style.flexDirection = 'column';
+            navLinks.style.padding = '20px';
+            navLinks.style.gap = '20px';
+            navLinks.style.borderBottom = '1px solid var(--border)';
+        }
+    });
+</script>
+
+</body>
+</html>
