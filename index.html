@@ -398,35 +398,183 @@
             justify-content: center;
         }
 
-        /* 防盗门 — 深蓝+金色几何门形 */
+        /* ===== SERVICE IMG — 防盗门：真实门体透视效果 ===== */
         .service-img-door {
             background: linear-gradient(160deg, #0d1b3e 0%, #1a2744 40%, #0d1b3e 100%);
         }
-        .service-img-door svg { width: 100%; height: 100%; }
+        .service-img-door::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: repeating-linear-gradient(
+                90deg,
+                transparent,
+                transparent 80px,
+                rgba(200,151,62,0.03) 80px,
+                rgba(200,151,62,0.03) 81px
+            );
+        }
+        .service-img-door::after {
+            content: '';
+            position: absolute;
+            top: -30%;
+            left: 10%;
+            width: 80%;
+            height: 160%;
+            background: radial-gradient(ellipse at center, rgba(200,151,62,0.08) 0%, transparent 70%);
+            animation: doorSheen 4s ease-in-out infinite;
+        }
+        @keyframes doorSheen {
+            0%, 100% { opacity: 0.5; transform: translateY(0); }
+            50% { opacity: 1; transform: translateY(10px); }
+        }
 
-        /* 木门 — 暖木纹 */
+        /* 木门：木纹纹理叠加 */
         .service-img-wood {
             background: linear-gradient(160deg, #2c1810 0%, #4a2e1a 40%, #2c1810 100%);
         }
+        .service-img-wood::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: repeating-linear-gradient(
+                -60deg,
+                transparent,
+                transparent 3px,
+                rgba(200,151,62,0.04) 3px,
+                rgba(200,151,62,0.04) 4px
+            ),
+            repeating-linear-gradient(
+                60deg,
+                transparent,
+                transparent 8px,
+                rgba(80,40,10,0.3) 8px,
+                rgba(80,40,10,0.3) 10px
+            );
+        }
+        .service-img-wood::after {
+            content: '';
+            position: absolute;
+            top: 0; left: -20%;
+            width: 60%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,200,100,0.06), transparent);
+            animation: woodSheen 5s ease-in-out infinite;
+        }
+        @keyframes woodSheen {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(300%); }
+        }
 
-        /* 橱柜 — 浅灰白+蓝调 */
+        /* 橱柜：金属质感 */
         .service-img-cabinet {
             background: linear-gradient(160deg, #1a2535 0%, #243045 40%, #1a2535 100%);
         }
+        .service-img-cabinet::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 40px,
+                rgba(255,255,255,0.02) 40px,
+                rgba(255,255,255,0.02) 41px
+            );
+        }
+        .service-img-cabinet::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: 0;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg at 50% 50%, transparent 0deg, rgba(200,151,62,0.04) 60deg, transparent 120deg);
+            animation: metalSpin 8s linear infinite;
+        }
+        @keyframes metalSpin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
 
-        /* 衣柜 — 极简白灰 */
+        /* 衣柜：玻璃光泽 */
         .service-img-wardrobe {
             background: linear-gradient(160deg, #1e1e2e 0%, #2a2a3e 40%, #1e1e2e 100%);
         }
+        .service-img-wardrobe::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.04) 0%, transparent 50%, rgba(255,255,255,0.02) 100%);
+        }
+        .service-img-wardrobe::after {
+            content: '';
+            position: absolute;
+            top: -20%;
+            left: 5%;
+            width: 90%;
+            height: 140%;
+            background: linear-gradient(180deg, rgba(200,151,62,0.07) 0%, transparent 60%);
+            animation: glassSheen 6s ease-in-out infinite;
+        }
+        @keyframes glassSheen {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.8; }
+        }
 
-        /* 全屋定制 — 深灰绿调 */
+        /* 全屋定制：立体建筑光影 */
         .service-img-home {
             background: linear-gradient(160deg, #0f2027 0%, #1a3040 40%, #0f2027 100%);
         }
+        .service-img-home::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 30% 70%, rgba(200,151,62,0.06) 0%, transparent 60%);
+        }
+        .service-img-home::after {
+            content: '';
+            position: absolute;
+            bottom: 0; right: -20%;
+            width: 60%;
+            height: 80%;
+            background: radial-gradient(ellipse at center, rgba(200,151,62,0.05) 0%, transparent 70%);
+            animation: homeGlow 5s ease-in-out infinite;
+        }
+        @keyframes homeGlow {
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 1; }
+        }
 
-        /* 装修 — 蓝图线条 */
+        /* 装修：蓝图动态网格 */
         .service-img-reno {
             background: linear-gradient(160deg, #0a1628 0%, #0f2040 40%, #0a1628 100%);
+        }
+        .service-img-reno::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                repeating-linear-gradient(0deg, transparent, transparent 19px, rgba(200,151,62,0.08) 19px, rgba(200,151,62,0.08) 20px),
+                repeating-linear-gradient(90deg, transparent, transparent 19px, rgba(200,151,62,0.08) 19px, rgba(200,151,62,0.08) 20px);
+            animation: gridPulse 4s ease-in-out infinite;
+        }
+        @keyframes gridPulse {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 1; }
+        }
+        .service-img-reno::after {
+            content: '';
+            position: absolute;
+            top: 0; left: -50%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(200,151,62,0.06), transparent);
+            animation: gridScan 6s ease-in-out infinite;
+        }
+        @keyframes gridScan {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(300%); }
         }
 
         .service-img-label {
@@ -524,6 +672,32 @@
             background: linear-gradient(160deg, #0d1b3e 0%, #16213e 50%, #0d1b3e 100%);
         }
 
+        /* 关于我们 — 背景：动态光线效果 */
+        .about-visual::before {
+            content: '';
+            position: absolute;
+            top: -60%;
+            left: -20%;
+            width: 140%;
+            height: 220%;
+            background: conic-gradient(from 180deg at 50% 50%,
+                transparent 0deg,
+                rgba(200,151,62,0.03) 30deg,
+                transparent 60deg,
+                rgba(200,151,62,0.02) 120deg,
+                transparent 180deg,
+                rgba(200,151,62,0.03) 240deg,
+                transparent 300deg,
+                rgba(200,151,62,0.02) 340deg,
+                transparent 360deg
+            );
+            animation: lightSweep 20s linear infinite;
+        }
+        @keyframes lightSweep {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
         /* About — 品牌展示：深蓝+金色几何 */
         .about-visual-inner {
             position: relative;
@@ -551,17 +725,22 @@
         }
 
         .about-visual-logo .big-icon {
-            width: 80px;
-            height: 80px;
+            width: 90px;
+            height: 90px;
             background: linear-gradient(135deg, var(--accent), var(--accent-light));
-            border-radius: 20px;
+            border-radius: 22px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 36px;
+            font-size: 40px;
             color: var(--primary);
             font-weight: 900;
-            box-shadow: 0 20px 60px rgba(200,151,62,0.3);
+            box-shadow: 0 20px 60px rgba(200,151,62,0.3), 0 0 40px rgba(200,151,62,0.1);
+            animation: iconPulse 3s ease-in-out infinite;
+        }
+        @keyframes iconPulse {
+            0%, 100% { box-shadow: 0 20px 60px rgba(200,151,62,0.3), 0 0 40px rgba(200,151,62,0.1); }
+            50% { box-shadow: 0 20px 80px rgba(200,151,62,0.5), 0 0 80px rgba(200,151,62,0.2); }
         }
 
         .about-visual-logo .brand-name {
@@ -569,6 +748,7 @@
             font-weight: 700;
             color: var(--white);
             letter-spacing: 8px;
+            text-shadow: 0 0 30px rgba(200,151,62,0.3);
         }
 
         .about-visual-logo .brand-en {
@@ -591,6 +771,28 @@
             color: var(--accent-light);
             letter-spacing: 4px;
             z-index: 3;
+            animation: badgeFloat 4s ease-in-out infinite;
+        }
+        @keyframes badgeFloat {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(-4px); }
+        }
+
+        /* 装饰性金色光线从顶部打下来 */
+        .about-visual::after {
+            content: '';
+            position: absolute;
+            top: -20%;
+            left: 30%;
+            width: 40%;
+            height: 80%;
+            background: linear-gradient(180deg, rgba(200,151,62,0.06) 0%, transparent 100%);
+            clip-path: polygon(30% 0%, 70% 0%, 100% 100%, 0% 100%);
+            animation: topLight 6s ease-in-out infinite;
+        }
+        @keyframes topLight {
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 0.8; }
         }
 
         .about-content h2 {
@@ -743,7 +945,7 @@
             justify-content: center;
         }
 
-        /* 每个案例不同背景色 */
+        /* 每个案例不同背景色+光线扫过 */
         .case-card-bg {
             position: absolute;
             inset: 0;
@@ -756,10 +958,30 @@
         .c05 { background: linear-gradient(135deg,#0a1628 0%,#122040 50%,#0a1628 100%); }
         .c06 { background: linear-gradient(135deg,#2a1810 0%,#3a2a20 50%,#2a1810 100%); }
 
+        /* 光线扫过动画 */
+        .case-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -80%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(200,151,62,0.06), transparent);
+            z-index: 1;
+            transform: skewX(-15deg);
+            transition: none;
+        }
+        .case-card:hover::before {
+            animation: caseSweep 0.7s ease-out;
+        }
+        @keyframes caseSweep {
+            from { left: -80%; }
+            to { left: 130%; }
+        }
+
         .case-card:hover {
             border-color: rgba(200, 151, 62, 0.5);
             transform: scale(1.02);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.4), 0 0 30px rgba(200,151,62,0.08);
         }
 
         .case-card.large {
@@ -1291,15 +1513,31 @@
     <div class="services-grid">
         <div class="service-card reveal">
             <div class="service-img service-img-door">
-                <span class="service-img-icon">🚪</span>
-                <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%;opacity:0.08">
-                    <rect x="120" y="20" width="160" height="160" rx="8" fill="none" stroke="#c8973e" stroke-width="1.5"/>
-                    <rect x="130" y="30" width="140" height="140" rx="4" fill="none" stroke="#c8973e" stroke-width="1"/>
-                    <line x1="200" y1="30" x2="200" y2="170" stroke="#c8973e" stroke-width="1"/>
-                    <line x1="130" y1="100" x2="270" y2="100" stroke="#c8973e" stroke-width="1"/>
-                    <circle cx="250" cy="100" r="8" fill="none" stroke="#c8973e" stroke-width="1.5"/>
-                    <circle cx="250" cy="100" r="3" fill="#c8973e"/>
-                    <rect x="190" y="16" width="20" height="8" rx="2" fill="#c8973e"/>
+                <svg viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%;opacity:0.18">
+                    <!-- 门框 -->
+                    <rect x="110" y="10" width="180" height="195" rx="6" fill="rgba(200,151,62,0.06)" stroke="#c8973e" stroke-width="1.5"/>
+                    <!-- 上层面板 -->
+                    <rect x="125" y="22" width="150" height="75" rx="4" fill="rgba(200,151,62,0.08)" stroke="#c8973e" stroke-width="1"/>
+                    <!-- 内嵌装饰线 -->
+                    <rect x="132" y="29" width="136" height="61" rx="3" fill="none" stroke="rgba(200,151,62,0.4)" stroke-width="0.8"/>
+                    <!-- 下层面板 -->
+                    <rect x="125" y="108" width="150" height="90" rx="4" fill="rgba(200,151,62,0.08)" stroke="#c8973e" stroke-width="1"/>
+                    <rect x="132" y="115" width="136" height="76" rx="3" fill="none" stroke="rgba(200,151,62,0.4)" stroke-width="0.8"/>
+                    <!-- 门中缝线 -->
+                    <line x1="200" y1="22" x2="200" y2="198" stroke="#c8973e" stroke-width="1.2"/>
+                    <!-- 门把手区 -->
+                    <rect x="218" y="90" width="42" height="28" rx="5" fill="rgba(200,151,62,0.15)" stroke="#c8973e" stroke-width="1"/>
+                    <circle cx="237" cy="104" r="5" fill="rgba(200,151,62,0.8)" stroke="none"/>
+                    <circle cx="237" cy="104" r="2" fill="#1a1a2e"/>
+                    <!-- 门楣装饰 -->
+                    <rect x="100" y="5" width="200" height="8" rx="3" fill="rgba(200,151,62,0.3)" stroke="#c8973e" stroke-width="0.8"/>
+                    <!-- 底部门槛 -->
+                    <rect x="108" y="198" width="184" height="8" rx="2" fill="rgba(200,151,62,0.25)"/>
+                    <!-- 门铃 -->
+                    <circle cx="260" cy="55" r="6" fill="rgba(200,151,62,0.12)" stroke="#c8973e" stroke-width="1"/>
+                    <circle cx="260" cy="55" r="2" fill="#c8973e"/>
+                    <!-- 门号牌 -->
+                    <rect x="130" y="130" width="30" height="18" rx="2" fill="rgba(200,151,62,0.1)" stroke="rgba(200,151,62,0.5)" stroke-width="0.8"/>
                 </svg>
                 <span class="service-img-label">Security Door</span>
             </div>
@@ -1312,16 +1550,33 @@
         </div>
         <div class="service-card reveal">
             <div class="service-img service-img-wood">
-                <span class="service-img-icon">🌳</span>
-                <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%;opacity:0.08">
-                    <rect x="100" y="20" width="200" height="160" rx="6" fill="none" stroke="#c8973e" stroke-width="1.5"/>
-                    <rect x="115" y="35" width="170" height="130" rx="3" fill="none" stroke="#c8973e" stroke-width="0.8"/>
-                    <line x1="115" y1="65" x2="285" y2="65" stroke="#c8973e" stroke-width="0.8"/>
-                    <line x1="115" y1="95" x2="285" y2="95" stroke="#c8973e" stroke-width="0.8"/>
-                    <line x1="115" y1="125" x2="285" y2="125" stroke="#c8973e" stroke-width="0.8"/>
-                    <line x1="115" y1="155" x2="285" y2="155" stroke="#c8973e" stroke-width="0.8"/>
-                    <rect x="155" y="80" width="90" height="40" rx="3" fill="none" stroke="#c8973e" stroke-width="1"/>
-                    <circle cx="240" cy="100" r="6" fill="#c8973e"/>
+                <svg viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%;opacity:0.18">
+                    <!-- 门框 -->
+                    <rect x="90" y="8" width="220" height="198" rx="8" fill="rgba(200,151,62,0.05)" stroke="#c8973e" stroke-width="1.5"/>
+                    <!-- 上部门芯板 -->
+                    <rect x="108" y="22" width="184" height="85" rx="4" fill="rgba(200,151,62,0.07)" stroke="#c8973e" stroke-width="1"/>
+                    <!-- 木纹线 — 上 -->
+                    <line x1="108" y1="42" x2="292" y2="42" stroke="rgba(200,151,62,0.3)" stroke-width="0.5"/>
+                    <line x1="108" y1="62" x2="292" y2="62" stroke="rgba(200,151,62,0.3)" stroke-width="0.5"/>
+                    <line x1="108" y1="82" x2="292" y2="82" stroke="rgba(200,151,62,0.3)" stroke-width="0.5"/>
+                    <line x1="108" y1="102" x2="292" y2="102" stroke="rgba(200,151,62,0.3)" stroke-width="0.5"/>
+                    <!-- 中间腰线 -->
+                    <rect x="108" y="114" width="184" height="14" rx="2" fill="rgba(200,151,62,0.15)" stroke="rgba(200,151,62,0.6)" stroke-width="0.8"/>
+                    <!-- 下部门芯板 -->
+                    <rect x="108" y="135" width="184" height="64" rx="4" fill="rgba(200,151,62,0.07)" stroke="#c8973e" stroke-width="1"/>
+                    <line x1="108" y1="155" x2="292" y2="155" stroke="rgba(200,151,62,0.3)" stroke-width="0.5"/>
+                    <line x1="108" y1="175" x2="292" y2="175" stroke="rgba(200,151,62,0.3)" stroke-width="0.5"/>
+                    <!-- 门把手 -->
+                    <ellipse cx="248" cy="165" rx="18" ry="12" fill="rgba(200,151,62,0.1)" stroke="#c8973e" stroke-width="1.2"/>
+                    <circle cx="248" cy="165" r="5" fill="rgba(200,151,62,0.8)"/>
+                    <circle cx="248" cy="165" r="2" fill="#1a1a2e"/>
+                    <!-- 顶部雕花装饰 -->
+                    <path d="M 170 30 Q 200 18 230 30" fill="none" stroke="#c8973e" stroke-width="1.2"/>
+                    <circle cx="200" cy="22" r="3" fill="rgba(200,151,62,0.8)"/>
+                    <!-- 门面分割线 -->
+                    <line x1="200" y1="22" x2="200" y2="128" stroke="#c8973e" stroke-width="0.8"/>
+                    <!-- 底部门槛 -->
+                    <rect x="90" y="198" width="220" height="8" rx="2" fill="rgba(200,151,62,0.2)"/>
                 </svg>
                 <span class="service-img-label">Wooden Door</span>
             </div>
@@ -1334,19 +1589,33 @@
         </div>
         <div class="service-card reveal">
             <div class="service-img service-img-cabinet">
-                <span class="service-img-icon">🍳</span>
-                <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%;opacity:0.08">
-                    <!-- L型橱柜示意 -->
-                    <rect x="60" y="60" width="180" height="120" rx="4" fill="none" stroke="#c8973e" stroke-width="1.5"/>
-                    <rect x="70" y="70" width="75" height="50" rx="2" fill="none" stroke="#c8973e" stroke-width="1"/>
-                    <rect x="155" y="70" width="75" height="50" rx="2" fill="none" stroke="#c8973e" stroke-width="1"/>
-                    <rect x="70" y="130" width="160" height="40" rx="2" fill="none" stroke="#c8973e" stroke-width="1"/>
-                    <line x1="70" y1="120" x2="230" y2="120" stroke="#c8973e" stroke-width="1.5"/>
+                <svg viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%;opacity:0.18">
+                    <!-- 橱柜主体框架 -->
+                    <rect x="45" y="55" width="310" height="145" rx="5" fill="rgba(200,151,62,0.05)" stroke="#c8973e" stroke-width="1.5"/>
                     <!-- 台面 -->
-                    <rect x="55" y="55" width="190" height="8" rx="2" fill="#c8973e" opacity="0.4"/>
-                    <!-- 拉手 -->
-                    <line x1="90" y1="93" x2="125" y2="93" stroke="#c8973e" stroke-width="1.5"/>
-                    <line x1="180" y1="93" x2="215" y2="93" stroke="#c8973e" stroke-width="1.5"/>
+                    <rect x="40" y="48" width="320" height="12" rx="3" fill="rgba(200,151,62,0.2)" stroke="#c8973e" stroke-width="0.8"/>
+                    <!-- 上柜×3 -->
+                    <rect x="55" y="68" width="88" height="65" rx="3" fill="rgba(200,151,62,0.07)" stroke="#c8973e" stroke-width="1"/>
+                    <rect x="156" y="68" width="88" height="65" rx="3" fill="rgba(200,151,62,0.07)" stroke="#c8973e" stroke-width="1"/>
+                    <rect x="257" y="68" width="88" height="65" rx="3" fill="rgba(200,151,62,0.07)" stroke="#c8973e" stroke-width="1"/>
+                    <!-- 上柜拉手 -->
+                    <line x1="80" y1="100" x2="118" y2="100" stroke="rgba(200,151,62,0.7)" stroke-width="1.5"/>
+                    <line x1="181" y1="100" x2="219" y2="100" stroke="rgba(200,151,62,0.7)" stroke-width="1.5"/>
+                    <line x1="282" y1="100" x2="320" y2="100" stroke="rgba(200,151,62,0.7)" stroke-width="1.5"/>
+                    <!-- 下柜×3 -->
+                    <rect x="55" y="142" width="88" height="52" rx="3" fill="rgba(200,151,62,0.07)" stroke="#c8973e" stroke-width="1"/>
+                    <rect x="156" y="142" width="88" height="52" rx="3" fill="rgba(200,151,62,0.07)" stroke="#c8973e" stroke-width="1"/>
+                    <rect x="257" y="142" width="88" height="52" rx="3" fill="rgba(200,151,62,0.07)" stroke="#c8973e" stroke-width="1"/>
+                    <!-- 下柜拉手 -->
+                    <line x1="80" y1="166" x2="118" y2="166" stroke="rgba(200,151,62,0.7)" stroke-width="1.5"/>
+                    <line x1="181" y1="166" x2="219" y2="166" stroke="rgba(200,151,62,0.7)" stroke-width="1.5"/>
+                    <line x1="282" y1="166" x2="320" y2="166" stroke="rgba(200,151,62,0.7)" stroke-width="1.5"/>
+                    <!-- 踢脚线 -->
+                    <rect x="45" y="193" width="310" height="7" rx="2" fill="rgba(200,151,62,0.15)"/>
+                    <!-- 水槽区 -->
+                    <rect x="156" y="148" width="88" height="40" rx="2" fill="rgba(200,151,62,0.1)" stroke="rgba(200,151,62,0.4)" stroke-width="0.8"/>
+                    <circle cx="185" cy="160" r="6" fill="none" stroke="rgba(200,151,62,0.6)" stroke-width="1"/>
+                    <circle cx="215" cy="160" r="6" fill="none" stroke="rgba(200,151,62,0.6)" stroke-width="1"/>
                 </svg>
                 <span class="service-img-label">Kitchen Cabinet</span>
             </div>
@@ -1359,19 +1628,34 @@
         </div>
         <div class="service-card reveal">
             <div class="service-img service-img-wardrobe">
-                <span class="service-img-icon">🗄️</span>
-                <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%;opacity:0.08">
-                    <!-- 衣柜示意图 -->
-                    <rect x="80" y="20" width="240" height="160" rx="6" fill="none" stroke="#c8973e" stroke-width="1.5"/>
-                    <line x1="200" y1="20" x2="200" y2="180" stroke="#c8973e" stroke-width="1.5"/>
-                    <line x1="80" y1="80" x2="320" y2="80" stroke="#c8973e" stroke-width="1"/>
-                    <rect x="140" y="92" width="20" height="6" rx="2" fill="#c8973e"/>
-                    <rect x="240" y="92" width="20" height="6" rx="2" fill="#c8973e"/>
-                    <rect x="140" y="30" width="20" height="6" rx="2" fill="#c8973e"/>
-                    <rect x="240" y="30" width="20" height="6" rx="2" fill="#c8973e"/>
-                    <!-- 虚线内部结构 -->
-                    <line x1="120" y1="20" x2="120" y2="80" stroke="#c8973e" stroke-width="0.5" stroke-dasharray="4 3"/>
-                    <line x1="280" y1="20" x2="280" y2="80" stroke="#c8973e" stroke-width="0.5" stroke-dasharray="4 3"/>
+                <svg viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%;opacity:0.18">
+                    <!-- 衣柜主体 -->
+                    <rect x="60" y="15" width="280" height="192" rx="6" fill="rgba(200,151,62,0.05)" stroke="#c8973e" stroke-width="1.5"/>
+                    <!-- 顶部收口线 -->
+                    <rect x="60" y="15" width="280" height="8" rx="3" fill="rgba(200,151,62,0.2)"/>
+                    <!-- 左门（到顶） -->
+                    <rect x="70" y="26" width="128" height="175" rx="3" fill="rgba(200,151,62,0.06)" stroke="#c8973e" stroke-width="1"/>
+                    <!-- 右门（到顶） -->
+                    <rect x="202" y="26" width="128" height="175" rx="3" fill="rgba(200,151,62,0.06)" stroke="#c8973e" stroke-width="1"/>
+                    <!-- 玻璃反光效果 -->
+                    <rect x="76" y="32" width="116" height="163" rx="2" fill="rgba(255,255,255,0.03)"/>
+                    <rect x="208" y="32" width="116" height="163" rx="2" fill="rgba(255,255,255,0.03)"/>
+                    <!-- 中间分割线（门缝） -->
+                    <line x1="199" y1="26" x2="199" y2="201" stroke="#c8973e" stroke-width="1.5"/>
+                    <!-- 拉手 — 左门 -->
+                    <rect x="165" y="100" width="28" height="8" rx="3" fill="rgba(200,151,62,0.8)" stroke="rgba(200,151,62,0.4)" stroke-width="0.8"/>
+                    <!-- 拉手 — 右门 -->
+                    <rect x="207" y="100" width="28" height="8" rx="3" fill="rgba(200,151,62,0.8)" stroke="rgba(200,151,62,0.4)" stroke-width="0.8"/>
+                    <!-- 内部结构暗示（虚线） -->
+                    <line x1="124" y1="26" x2="124" y2="201" stroke="rgba(200,151,62,0.15)" stroke-width="0.6" stroke-dasharray="3 4"/>
+                    <line x1="276" y1="26" x2="276" y2="201" stroke="rgba(200,151,62,0.15)" stroke-width="0.6" stroke-dasharray="3 4"/>
+                    <!-- 顶部装饰条 -->
+                    <rect x="56" y="11" width="288" height="6" rx="2" fill="rgba(200,151,62,0.3)"/>
+                    <!-- 底座 -->
+                    <rect x="56" y="205" width="288" height="5" rx="2" fill="rgba(200,151,62,0.2)"/>
+                    <!-- 脚 -->
+                    <rect x="80" y="207" width="15" height="5" rx="1" fill="rgba(200,151,62,0.5)"/>
+                    <rect x="305" y="207" width="15" height="5" rx="1" fill="rgba(200,151,62,0.5)"/>
                 </svg>
                 <span class="service-img-label">Wardrobe</span>
             </div>
@@ -1384,16 +1668,41 @@
         </div>
         <div class="service-card reveal">
             <div class="service-img service-img-home">
-                <span class="service-img-icon">🏠</span>
-                <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%;opacity:0.08">
-                    <!-- 房屋剪影 -->
-                    <polygon points="200,30 80,100 120,100 120,160 280,160 280,100 320,100" fill="none" stroke="#c8973e" stroke-width="1.5"/>
-                    <rect x="170" y="115" width="60" height="45" rx="2" fill="none" stroke="#c8973e" stroke-width="1"/>
-                    <line x1="200" y1="115" x2="200" y2="160" stroke="#c8973e" stroke-width="1"/>
-                    <rect x="130" y="120" width="30" height="25" rx="1" fill="none" stroke="#c8973e" stroke-width="1"/>
-                    <rect x="240" y="120" width="30" height="25" rx="1" fill="none" stroke="#c8973e" stroke-width="1"/>
-                    <!-- 地面线 -->
-                    <line x1="60" y1="163" x2="340" y2="163" stroke="#c8973e" stroke-width="1"/>
+                <svg viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%;opacity:0.18">
+                    <!-- 主屋顶 -->
+                    <polygon points="200,28 55,105 95,105 95,175 305,175 305,105 345,105" fill="rgba(200,151,62,0.06)" stroke="#c8973e" stroke-width="1.5"/>
+                    <!-- 屋顶横梁线 -->
+                    <line x1="95" y1="105" x2="305" y2="105" stroke="rgba(200,151,62,0.5)" stroke-width="1"/>
+                    <!-- 主入口门 -->
+                    <rect x="168" y="120" width="64" height="55" rx="3" fill="rgba(200,151,62,0.1)" stroke="#c8973e" stroke-width="1.2"/>
+                    <line x1="200" y1="120" x2="200" y2="175" stroke="#c8973e" stroke-width="1"/>
+                    <!-- 门把手 -->
+                    <circle cx="222" cy="148" r="3.5" fill="rgba(200,151,62,0.8)"/>
+                    <!-- 左窗 -->
+                    <rect x="108" y="120" width="46" height="40" rx="2" fill="rgba(200,151,62,0.08)" stroke="#c8973e" stroke-width="1"/>
+                    <line x1="131" y1="120" x2="131" y2="160" stroke="rgba(200,151,62,0.5)" stroke-width="0.8"/>
+                    <line x1="108" y1="140" x2="154" y2="140" stroke="rgba(200,151,62,0.5)" stroke-width="0.8"/>
+                    <!-- 右窗 -->
+                    <rect x="246" y="120" width="46" height="40" rx="2" fill="rgba(200,151,62,0.08)" stroke="#c8973e" stroke-width="1"/>
+                    <line x1="269" y1="120" x2="269" y2="160" stroke="rgba(200,151,62,0.5)" stroke-width="0.8"/>
+                    <line x1="246" y1="140" x2="292" y2="140" stroke="rgba(200,151,62,0.5)" stroke-width="0.8"/>
+                    <!-- 屋顶老虎窗 -->
+                    <rect x="172" y="48" width="56" height="50" rx="4" fill="rgba(200,151,62,0.08)" stroke="#c8973e" stroke-width="1"/>
+                    <line x1="200" y1="48" x2="200" y2="98" stroke="rgba(200,151,62,0.5)" stroke-width="0.8"/>
+                    <line x1="172" y1="73" x2="228" y2="73" stroke="rgba(200,151,62,0.5)" stroke-width="0.8"/>
+                    <!-- 屋顶轮廓装饰 -->
+                    <line x1="55" y1="105" x2="345" y2="105" stroke="#c8973e" stroke-width="1.5"/>
+                    <line x1="200" y1="28" x2="55" y2="105" stroke="#c8973e" stroke-width="1.2"/>
+                    <line x1="200" y1="28" x2="345" y2="105" stroke="#c8973e" stroke-width="1.2"/>
+                    <!-- 烟囱 -->
+                    <rect x="270" y="58" width="22" height="32" rx="2" fill="rgba(200,151,62,0.1)" stroke="#c8973e" stroke-width="1"/>
+                    <rect x="267" y="55" width="28" height="6" rx="2" fill="rgba(200,151,62,0.2)"/>
+                    <!-- 地面 -->
+                    <line x1="30" y1="178" x2="370" y2="178" stroke="#c8973e" stroke-width="1.2"/>
+                    <!-- 台阶 -->
+                    <rect x="158" y="172" width="84" height="6" rx="2" fill="rgba(200,151,62,0.15)"/>
+                    <!-- 门前小径 -->
+                    <rect x="188" y="175" width="24" height="30" rx="1" fill="rgba(200,151,62,0.05)" stroke="rgba(200,151,62,0.3)" stroke-width="0.5"/>
                 </svg>
                 <span class="service-img-label">Home Custom</span>
             </div>
@@ -1406,24 +1715,48 @@
         </div>
         <div class="service-card reveal">
             <div class="service-img service-img-reno">
-                <span class="service-img-icon">🎨</span>
-                <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%;opacity:0.08">
-                    <!-- 蓝图网格 -->
+                <svg viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%;opacity:0.18">
                     <defs>
-                        <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
-                            <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#c8973e" stroke-width="0.3"/>
+                        <pattern id="renogrid" width="20" height="20" patternUnits="userSpaceOnUse">
+                            <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(200,151,62,0.25)" stroke-width="0.4"/>
                         </pattern>
                     </defs>
-                    <rect width="400" height="200" fill="url(#grid)" opacity="0.3"/>
-                    <!-- 角度仪 -->
-                    <path d="M 200 50 L 120 150 L 280 150 Z" fill="none" stroke="#c8973e" stroke-width="1.2"/>
-                    <circle cx="200" cy="50" r="5" fill="#c8973e"/>
-                    <circle cx="120" cy="150" r="4" fill="none" stroke="#c8973e" stroke-width="1.2"/>
-                    <circle cx="280" cy="150" r="4" fill="none" stroke="#c8973e" stroke-width="1.2"/>
-                    <!-- 尺寸标注 -->
-                    <line x1="120" y1="160" x2="280" y2="160" stroke="#c8973e" stroke-width="0.8"/>
-                    <line x1="120" y1="155" x2="120" y2="165" stroke="#c8973e" stroke-width="0.8"/>
-                    <line x1="280" y1="155" x2="280" y2="165" stroke="#c8973e" stroke-width="0.8"/>
+                    <!-- 蓝图底纹 -->
+                    <rect width="400" height="220" fill="url(#renogrid)" opacity="0.5"/>
+                    <!-- 主房间轮廓 -->
+                    <rect x="55" y="50" width="200" height="130" rx="3" fill="rgba(200,151,62,0.04)" stroke="#c8973e" stroke-width="1.2"/>
+                    <!-- 隔壁房间 -->
+                    <rect x="255" y="70" width="100" height="110" rx="3" fill="rgba(200,151,62,0.04)" stroke="#c8973e" stroke-width="1.2"/>
+                    <!-- 门洞 -->
+                    <rect x="195" y="105" width="30" height="45" rx="2" fill="rgba(200,151,62,0.08)" stroke="rgba(200,151,62,0.5)" stroke-width="0.8" stroke-dasharray="4 2"/>
+                    <!-- 窗户 -->
+                    <rect x="80" y="55" width="40" height="25" rx="2" fill="rgba(200,151,62,0.08)" stroke="#c8973e" stroke-width="1"/>
+                    <line x1="100" y1="55" x2="100" y2="80" stroke="rgba(200,151,62,0.5)" stroke-width="0.8"/>
+                    <!-- 另一个窗 -->
+                    <rect x="155" y="55" width="40" height="25" rx="2" fill="rgba(200,151,62,0.08)" stroke="#c8973e" stroke-width="1"/>
+                    <line x1="175" y1="55" x2="175" y2="80" stroke="rgba(200,151,62,0.5)" stroke-width="0.8"/>
+                    <!-- 标注：主卧 -->
+                    <text x="155" y="40" font-family="monospace" font-size="9" fill="rgba(200,151,62,0.7)" text-anchor="middle">主 卧</text>
+                    <!-- 标注：次卧 -->
+                    <text x="305" y="60" font-family="monospace" font-size="9" fill="rgba(200,151,62,0.7)" text-anchor="middle">次 卧</text>
+                    <!-- 水平尺寸标注 -->
+                    <line x1="55" y1="190" x2="255" y2="190" stroke="#c8973e" stroke-width="0.8"/>
+                    <line x1="55" y1="185" x2="55" y2="195" stroke="#c8973e" stroke-width="0.8"/>
+                    <line x1="255" y1="185" x2="255" y2="195" stroke="#c8973e" stroke-width="0.8"/>
+                    <text x="155" y="204" font-family="monospace" font-size="8" fill="rgba(200,151,62,0.7)" text-anchor="middle">3.2m</text>
+                    <!-- 垂直尺寸标注 -->
+                    <line x1="40" y1="50" x2="40" y2="180" stroke="#c8973e" stroke-width="0.8"/>
+                    <line x1="35" y1="50" x2="45" y2="50" stroke="#c8973e" stroke-width="0.8"/>
+                    <line x1="35" y1="180" x2="45" y2="180" stroke="#c8973e" stroke-width="0.8"/>
+                    <text x="28" y="118" font-family="monospace" font-size="8" fill="rgba(200,151,62,0.7)" text-anchor="middle" transform="rotate(-90,28,118)">4.5m</text>
+                    <!-- 三角角度仪 -->
+                    <path d="M 330 50 L 300 110 L 360 110 Z" fill="rgba(200,151,62,0.06)" stroke="#c8973e" stroke-width="1.2"/>
+                    <circle cx="330" cy="50" r="4" fill="rgba(200,151,62,0.8)"/>
+                    <circle cx="300" cy="110" r="3" fill="none" stroke="#c8973e" stroke-width="1"/>
+                    <circle cx="360" cy="110" r="3" fill="none" stroke="#c8973e" stroke-width="1"/>
+                    <text x="330" y="48" font-family="monospace" font-size="7" fill="rgba(200,151,62,0.7)" text-anchor="middle">90°</text>
+                    <!-- 标高 -->
+                    <text x="310" y="198" font-family="monospace" font-size="7" fill="rgba(200,151,62,0.6)">±0.000</text>
                 </svg>
                 <span class="service-img-label">Renovation</span>
             </div>
